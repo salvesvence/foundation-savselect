@@ -12,4 +12,5 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist'));
 });
 
+// Default Task
 gulp.task('default', ['scripts']);
