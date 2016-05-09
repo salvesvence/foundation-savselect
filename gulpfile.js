@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src(['libs/jquery.js', 'src/sav-select.js'])
+    return gulp.src('dist/sav-select.js')
         .pipe(concat('sav-select.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist'));
