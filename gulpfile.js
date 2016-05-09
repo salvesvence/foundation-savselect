@@ -1,3 +1,4 @@
+// Include gulp and our plugins
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify');
