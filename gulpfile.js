@@ -1,13 +1,13 @@
 // Include gulp and our plugins
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
+    rename = require('gulp-rename'),
     uglify = require('gulp-uglify');
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
-        .pipe(concat('sav-select.js'))
-        .pipe(gulp.dest('dist'))
+    return gulp.src(['libs/jquery.js', 'src/sav-select.js'])
+        .pipe(concat('sav-select.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
