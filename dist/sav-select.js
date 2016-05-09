@@ -10,18 +10,18 @@ if( typeof  Object.create !== 'function' ) {
 (function($, window, document, undefined) {
 
     var Select = {
-        init: function( options, elem ) {
+        init: function( config, elem ) {
             var self = this;
 
             self.elem = elem;
             self.$elem = $(elem);
 
-            if( typeof options === 'string' ) {
-                self.search = options;
+            if( typeof config === 'string' ) {
+                self.theme = config;
             } else {
                 // object was passed
-                self.search = options.search;
-                self.options = $.extend( {}, $.fn.SavSelect.options, options );
+                self.theme = config.theme;
+                self.config = $.extend( {}, $.fn.SavSelect.config, config );
             }
 
             self.options();
@@ -32,22 +32,22 @@ if( typeof  Object.create !== 'function' ) {
             var options = [];
 
             self.$elem.find('option').each( function() {
-                options.push( $(this).val() );
+                options[$(this).val()] = $(this).text();
             });
 
             return options;
         }
     };
 
-    $.fn.SavSelect = function( options ) {
+    $.fn.SavSelect = function( config ) {
         return this.each( function() {
             var select = Object.create( Select );
-            select.init( options, this );
+            select.init( config, this );
         });
     };
 
-    $.fn.SavSelect.options = {
-        search: 'sav'
+    $.fn.SavSelect.config = {
+        theme: 'bootstrap'
     };
 
 })(jQuery, window, document);
