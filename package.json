@@ -1,0 +1,31 @@
+{
+  "name": "sav-select",
+  "version": "1.0.0",
+  "description": "jQuery Plugin for simple or multiple selects.",
+  "main": "sav-select.js",
+  "dependencies": {
+    "jquery": "^2.2.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salvesvence/sav-select.git"
+  },
+  "keywords": [
+    "javascript",
+    "jquery",
+    "foundation",
+    "bootstrap"
+  ],
+  "author": "Silvano Alves Vence",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salvesvence/sav-select/issues"
+  },
+  "homepage": "https://github.com/salvesvence/sav-select#readme"
+}
