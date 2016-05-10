@@ -25,6 +25,7 @@ if( typeof  Object.create !== 'function' ) {
             }
 
             self.options();
+            self.display();
         },
 
         options: function() {
@@ -36,6 +37,23 @@ if( typeof  Object.create !== 'function' ) {
             });
 
             return options;
+        },
+
+        display: function() {
+            var self = this;
+
+            self.$elem.after(
+                '<div class="dropdown">' +
+                    '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">' +
+                        '<span class="caret"></span>' +
+                    '</button>' +
+                    '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">' +
+                        '<li><a href="#">Action</a></li>' +
+                        '<li><a href="#">Another action</a></li>' +
+                        '<li><a href="#">Something else here</a></li>' +
+                    '</ul>' +
+                '</div>'
+            );
         }
     };
 

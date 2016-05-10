@@ -3,24 +3,48 @@
     <meta charset="utf-8">
     <title>jQuery Plugins</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 </head>
 
 <body>
 
     <h1>My Select</h1>
+
     <label for="user"></label>
     <select id="user" class="select" name="user">
         <option value="silvano">Silvano</option>
-        <option value="irene">Irene</option>
+        <option value="irene" selected>Irene</option>
         <option value="natalia">Natalia</option>
     </select>
 
+
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true"
+            > Seleccionar
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+        </ul>
+    </div>
+
     <script src="../libs/js/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="../dist/sav-select.min.js"></script>
 
     <script>
 
-        $('select.select').SavSelect('foundation');
+        (function() {
+            $('select.select').SavSelect('foundation');
+        })();
 
     </script>
 
