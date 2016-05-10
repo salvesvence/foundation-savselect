@@ -1,6 +1,8 @@
 // Utility
 if( typeof  Object.create !== 'function' ) {
+
     Object.create = function( obj ) {
+
         function F(){};
         F.prototype = obj;
         return new F();
@@ -19,9 +21,11 @@ if( typeof  Object.create !== 'function' ) {
             self.$elem = $(elem);
 
             if( typeof config === 'string' ) {
+
                 self.theme = config;
-            } else {
-                // object was passed
+            }
+            else {
+
                 self.theme = config.theme;
                 self.config = $.extend( {}, $.fn.SavSelect.config, config );
             }
@@ -33,7 +37,7 @@ if( typeof  Object.create !== 'function' ) {
         options: function() {
 
             var self = this,
-                options = [];
+                options = {};
 
             self.$elem.find('option').each( function() {
                 options[$(this).val()] = $(this).text();
@@ -48,17 +52,30 @@ if( typeof  Object.create !== 'function' ) {
 
             self.$elem.after(
                 '<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="sav-select">Dropdown Button</button><br>' +
-                '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
-                    '<li><a href="#">This is a link</a></li>' +
-                    '<li><a href="#">This is a link</a></li>' +
-                    '<li><a href="#">This is a link</a></li>' +
-                '</ul>'
+                '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true"></ul>'
             );
+
+            self.setOptions();
+        },
+
+        setOptions: function() {
+
+            var self = this,
+                options = self.options();
+
+            $.each(options, function(key, value) {
+
+                self.$elem.siblings('.sav-dropdown').append(
+                    '<li><a href="#" data-elem="' + key +'">' + value + '</a></li>'
+                );
+            });
         }
     };
 
     $.fn.SavSelect = function( config ) {
+
         return this.each( function() {
+
             var select = Object.create( Select );
             select.init( config, this );
         });
