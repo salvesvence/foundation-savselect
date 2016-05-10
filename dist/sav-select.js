@@ -20,15 +20,11 @@ if( typeof  Object.create !== 'function' ) {
             self.elem = elem;
             self.$elem = $(elem);
 
-            if( typeof config === 'string' ) {
+            self.theme = ( typeof config === 'string' )
+                ? config
+                : config.theme;
 
-                self.theme = config;
-            }
-            else {
-
-                self.theme = config.theme;
-                self.config = $.extend( {}, $.fn.SavSelect.config, config );
-            }
+            self.config = $.extend( {}, $.fn.SavSelect.config, config );
 
             self.options();
             self.display();
@@ -40,7 +36,11 @@ if( typeof  Object.create !== 'function' ) {
                 options = {};
 
             self.$elem.find('option').each( function() {
-                options[$(this).val()] = $(this).text();
+
+                options[$(this).val()] = {
+                    'text': $(this).text(),
+                    'is_selected': $(this).attr('selected') ? true : false
+                };
             });
 
             return options;
@@ -51,11 +51,14 @@ if( typeof  Object.create !== 'function' ) {
             var self = this;
 
             self.$elem.after(
-                '<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="sav-select">Dropdown Button</button><br>' +
+                '<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="sav-select">' +
+                    self.config.default_option +
+                '</button><br>' +
                 '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true"></ul>'
             );
 
             self.setOptions();
+            self.$elem.hide();
         },
 
         setOptions: function() {
@@ -65,8 +68,10 @@ if( typeof  Object.create !== 'function' ) {
 
             $.each(options, function(key, value) {
 
+                if(value.is_selected) self.$elem.siblings('.sav-select').text(value.text);
+
                 self.$elem.siblings('.sav-dropdown').append(
-                    '<li><a href="#" data-elem="' + key +'">' + value + '</a></li>'
+                    '<li><a href="#" data-elem="' + key +'">' + value.text + '</a></li>'
                 );
             });
         }
@@ -77,12 +82,13 @@ if( typeof  Object.create !== 'function' ) {
         return this.each( function() {
 
             var select = Object.create( Select );
-            select.init( config, this );
+            select.init( config || 'foundation', this );
         });
     };
 
     $.fn.SavSelect.config = {
-        theme: 'bootstrap'
+        theme: 'foundation',
+        default_option: 'Select Option'
     };
 
 })(jQuery, window, document);
