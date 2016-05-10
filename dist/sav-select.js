@@ -10,7 +10,9 @@ if( typeof  Object.create !== 'function' ) {
 (function($, window, document, undefined) {
 
     var Select = {
+
         init: function( config, elem ) {
+
             var self = this;
 
             self.elem = elem;
@@ -29,8 +31,9 @@ if( typeof  Object.create !== 'function' ) {
         },
 
         options: function() {
-            var self = this;
-            var options = [];
+
+            var self = this,
+                options = [];
 
             self.$elem.find('option').each( function() {
                 options[$(this).val()] = $(this).text();
@@ -40,19 +43,16 @@ if( typeof  Object.create !== 'function' ) {
         },
 
         display: function() {
+
             var self = this;
 
             self.$elem.after(
-                '<div class="dropdown">' +
-                    '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">' +
-                        '<span class="caret"></span>' +
-                    '</button>' +
-                    '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">' +
-                        '<li><a href="#">Action</a></li>' +
-                        '<li><a href="#">Another action</a></li>' +
-                        '<li><a href="#">Something else here</a></li>' +
-                    '</ul>' +
-                '</div>'
+                '<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="sav-select">Dropdown Button</button><br>' +
+                '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
+                    '<li><a href="#">This is a link</a></li>' +
+                    '<li><a href="#">This is a link</a></li>' +
+                    '<li><a href="#">This is a link</a></li>' +
+                '</ul>'
             );
         }
     };
