@@ -89,14 +89,14 @@ if( typeof  Object.create !== 'function' ) {
             var self = this,
                 $elem = self.$elem;
 
-            $elem.siblings('.sav-dropdown').find('a').on('click', function() {
+            $elem.siblings('.sav-dropdown').find('a').on('click', function () {
 
                 var $this = $(this),
                     option = $this.data('elem');
 
                 $elem.siblings('.sav-select').empty().text($this.text());
 
-                $elem.find('option').each(function(i, elem) {
+                $elem.find('option').each(function (i, elem) {
                     $(this).attr("selected", elem.value === option);
                 });
             });
