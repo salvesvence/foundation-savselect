@@ -37,9 +37,11 @@ if( typeof  Object.create !== 'function' ) {
 
             self.$elem.find('option').each( function() {
 
-                options[$(this).val()] = {
-                    'text': $(this).text(),
-                    'is_selected': $(this).attr('selected') ? true : false
+                var $this = $(this);
+
+                options[$this.val()] = {
+                    'text': $this.text(),
+                    'is_selected': $this.attr('selected') ? true : false
                 };
             });
 
@@ -48,9 +50,10 @@ if( typeof  Object.create !== 'function' ) {
 
         display: function() {
 
-            var self = this;
+            var self = this,
+                $elem = self.$elem;
 
-            self.$elem.after(
+            $elem.after(
                 '<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="sav-select">' +
                     self.config.default_option +
                 '</button><br>' +
@@ -59,23 +62,48 @@ if( typeof  Object.create !== 'function' ) {
                 '</ul>'
             );
 
-            self.setOptions();
-            self.$elem.hide();
+            $elem.hide();
+
+            self.setOptions()
+                .onChangeOption();
         },
 
         setOptions: function() {
 
             var self = this,
-                options = self.options();
+                options = self.options(),
+                $elem = self.$elem;
 
             $.each(options, function(key, value) {
 
-                if(value.is_selected) self.$elem.siblings('.sav-select').text(value.text);
+                if(value.is_selected) $elem.siblings('.sav-select').text(value.text);
 
-                self.$elem.siblings('.sav-dropdown').append(
+                $elem.siblings('.sav-dropdown').append(
                     '<li><a href="#" data-elem="' + key +'">' + value.text + '</a></li>'
                 );
             });
+
+            return this;
+        },
+
+        onChangeOption: function() {
+
+            var self = this,
+                $elem = self.$elem;
+
+            $elem.siblings('.sav-dropdown').find('a').on('click', function() {
+
+                var $this = $(this),
+                    option = $this.data('elem');
+
+                self.$elem.siblings('.sav-select').empty().text($this.text());
+
+                $elem.find('option').each(function(i, elem) {
+                    $(this).attr("selected", elem.value === option);
+                });
+            });
+
+            return this;
         }
     };
 

@@ -31,7 +31,9 @@
 
         (function() {
 
-            $('select.select').SavSelect();
+            $('select.select').SavSelect({
+                default_option: 'Seleccionar'
+            });
 
             // You must to load the foundation event before the foundation-savselect script
             $(document).foundation();
