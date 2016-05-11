@@ -60,9 +60,7 @@ if( typeof  Object.create !== 'function' ) {
                 '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
                     '<li><a href="#">' + self.config.default_option + '</a></li>' +
                 '</ul>'
-            );
-
-            $elem.hide();
+            ).hide();
 
             return self.setOptions()
                        .onChangeOption();
@@ -96,7 +94,7 @@ if( typeof  Object.create !== 'function' ) {
                 var $this = $(this),
                     option = $this.data('elem');
 
-                self.$elem.siblings('.sav-select').empty().text($this.text());
+                $elem.siblings('.sav-select').empty().text($this.text());
 
                 $elem.find('option').each(function(i, elem) {
                     $(this).attr("selected", elem.value === option);
