@@ -41,8 +41,8 @@ if( typeof  Object.create !== 'function' ) {
 
                 options[$this.val()] = {
                     'text': $this.text(),
-                    'is_selected': $this.attr('selected') ? true : false,
-                    'thumbnail': $this.data('thumb') ? $this.data('thumb') : false
+                    'is_selected': $this.attr('selected') || false,
+                    'thumbnail': $this.data('thumb') || false
                 };
             });
 
@@ -77,8 +77,13 @@ if( typeof  Object.create !== 'function' ) {
 
                 if(value.is_selected) $elem.siblings('.sav-select').text(value.text);
 
+                console.log(value.thumbnail);
                 $elem.siblings('.sav-dropdown').append(
-                    '<li><a href="#" data-elem="' + key +'">' + value.text + '</a></li>'
+                    '<li>' +
+                        '<a href="#" data-elem="' + key +'">' +
+                            '<div class="sav-thumbnail" style="background-image: url(' + value.thumbnail + ');"></div>' + value.text +
+                        '</a>' +
+                    '</li>'
                 );
             });
 
