@@ -14,14 +14,17 @@
 
 <body>
 
-    <h1>My Select</h1>
-
-    <label for="user"></label>
-    <select id="user" class="select" name="user">
-        <option value="silvano">Silvano</option>
-        <option value="irene">Irene</option>
-        <option value="natalia">Natalia</option>
-    </select>
+    <div class="row collapse">
+        <div class="small-12 medium-6 medium-centered columns">
+            <h1>My Thumb Select Dropdown</h1>
+            <label for="user">NAME</label>
+            <select id="user" class="select" name="user">
+                <option value="silvano" data-thumb="http://lorempixel.com/400/200/">SILVANO</option>
+                <option value="irene" data-thumb="http://lorempixel.com/400/200/">IRENE</option>
+                <option value="natalia" data-thumb="http://lorempixel.com/400/200/">NATALIA</option>
+            </select>
+        </div>
+    </div>
 
     <script src="../libs/js/jquery.js"></script>
     <script src="../libs/js/foundation.min.js"></script>
@@ -32,7 +35,7 @@
         (function() {
 
             $('select.select').SavSelect({
-                default_option: 'Seleccionar'
+                default_option: 'SELECT AN OPTION'
             });
 
             // You must to load the foundation event before the foundation-savselect script

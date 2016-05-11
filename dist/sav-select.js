@@ -41,7 +41,8 @@ if( typeof  Object.create !== 'function' ) {
 
                 options[$this.val()] = {
                     'text': $this.text(),
-                    'is_selected': $this.attr('selected') ? true : false
+                    'is_selected': $this.attr('selected') ? true : false,
+                    'thumbnail': $this.data('thumb') ? $this.data('thumb') : false
                 };
             });
 
