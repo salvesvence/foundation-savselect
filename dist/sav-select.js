@@ -26,8 +26,8 @@ if( typeof  Object.create !== 'function' ) {
 
             self.config = $.extend( {}, $.fn.SavSelect.config, config );
 
-            self.options();
-            self.display();
+            self.display()
+                .options();
         },
 
         options: function() {
@@ -64,8 +64,8 @@ if( typeof  Object.create !== 'function' ) {
 
             $elem.hide();
 
-            self.setOptions()
-                .onChangeOption();
+            return self.setOptions()
+                       .onChangeOption();
         },
 
         setOptions: function() {
@@ -83,7 +83,7 @@ if( typeof  Object.create !== 'function' ) {
                 );
             });
 
-            return this;
+            return self;
         },
 
         onChangeOption: function() {
@@ -103,7 +103,7 @@ if( typeof  Object.create !== 'function' ) {
                 });
             });
 
-            return this;
+            return self;
         }
     };
 
