@@ -54,7 +54,9 @@ if( typeof  Object.create !== 'function' ) {
                 '<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="sav-select">' +
                     self.config.default_option +
                 '</button><br>' +
-                '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true"></ul>'
+                '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
+                    '<li><a href="#">' + self.config.default_option + '</a></li>' +
+                '</ul>'
             );
 
             self.setOptions();
