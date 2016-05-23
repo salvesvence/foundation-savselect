@@ -24,6 +24,8 @@ if( typeof  Object.create !== 'function' ) {
                 ? config
                 : config.theme;
 
+            self.multiple = typeof( self.$elem.attr('multiple') ) != 'undefined';
+
             self.config = $.extend( {}, $.fn.SavSelect.config, config );
 
             self.display()
@@ -62,6 +64,9 @@ if( typeof  Object.create !== 'function' ) {
                     '<li><a href="#">' + self.config.default_option + '</a></li>' +
                 '</ul>'
             ).hide();
+
+            // if select is multiple we disabled the aria-autoclose attribute into the <ul> element.
+            if( self.multiple ) $elem.siblings('ul').attr('aria-autoclose', false);
 
             return self.setOptions()
                        .onChangeOption();
@@ -104,6 +109,9 @@ if( typeof  Object.create !== 'function' ) {
 
                 var $this = $(this),
                     option = $this.data('elem');
+
+                // if select is multiple we toggle the .sav-selected class in each <a> tag.
+                if( self.multiple ) $this.toggleClass('sav-selected');
 
                 $elem.siblings('.sav-select').empty().text($this.text());
 

@@ -50,3 +50,8 @@
     -khtml-border-radius: 3px;
     border-radius: 3px;
 }
+
+.sav-selected::after {
+    content: "✓";
+    float: right;
+}
