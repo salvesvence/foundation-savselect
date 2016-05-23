@@ -78,7 +78,9 @@ if( typeof  Object.create !== 'function' ) {
 
                 if(value.is_selected) $elem.siblings('.sav-select').text(value.text);
 
-                html = value.thumbnail ? '<div class="sav-thumbnail" style="background-image: url(' + value.thumbnail + ');"></div>' : '';
+                html = value.thumbnail
+                        ? '<div class="sav-thumbnail" style="background-image: url(' + value.thumbnail + ');"></div>'
+                        : '';
 
                 $elem.siblings('.sav-dropdown').append(
                     '<li>' +
