@@ -103,22 +103,39 @@ if( typeof  Object.create !== 'function' ) {
         onChangeOption: function() {
 
             var self = this,
-                $elem = self.$elem;
+                $elem = self.$elem,
+                dropdown = $elem.siblings('.sav-dropdown'),
+                texts = [];
 
-            $elem.siblings('.sav-dropdown').find('a').on('click', function() {
+            dropdown.find('a').on('click', function() {
 
                 var $this = $(this),
                     option = $this.data('elem');
 
                 // if select is multiple we toggle the .sav-selected class in each <a> tag.
-                if( self.multiple ) $this.toggleClass('sav-selected');
+                if( self.multiple ) {
 
-                $elem.siblings('.sav-select').empty().text($this.text());
+                    $this.toggleClass('sav-selected');
+                    $elem.find('option[value=' + option + ']').attr('selected', $this.hasClass('sav-selected'));
+                }
+                else {
+
+                    $elem.find('option').each(function(i, elem) {
+                        $(this).attr("selected", elem.value === option);
+                    });
+                }
+
+                texts = [];
 
                 $elem.find('option').each(function(i, elem) {
-                    $(this).attr("selected", elem.value === option);
+                    if( $(this).is("[selected]") ) texts[i] = $(this).text();
                 });
+
+                $elem.siblings('.sav-select')
+                    .empty()
+                    .text( texts.filter(Boolean).join(', ') );
             });
+
 
             return self;
         }
