@@ -71,16 +71,20 @@ if( typeof  Object.create !== 'function' ) {
 
             var self = this,
                 options = self.options(),
-                $elem = self.$elem;
+                $elem = self.$elem,
+                html;
 
             $.each(options, function(key, value) {
 
                 if(value.is_selected) $elem.siblings('.sav-select').text(value.text);
 
+                html = value.thumbnail ? '<div class="sav-thumbnail" style="background-image: url(' + value.thumbnail + ');"></div>' : '';
+
                 $elem.siblings('.sav-dropdown').append(
                     '<li>' +
                         '<a href="#" data-elem="' + key +'">' +
-                            '<div class="sav-thumbnail" style="background-image: url(' + value.thumbnail + ');"></div>' + value.text +
+                            html +
+                            value.text +
                         '</a>' +
                     '</li>'
                 );
