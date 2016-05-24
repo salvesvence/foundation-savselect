@@ -106,6 +106,7 @@ if( typeof Object.create !== 'function' ) {
             var self = this,
                 $elem = self.$elem,
                 dropdown = $elem.siblings('.sav-dropdown'),
+                isClicked = false,
                 texts;
 
             dropdown.find('a').on('click', function() {
@@ -113,12 +114,27 @@ if( typeof Object.create !== 'function' ) {
                 var $this = $(this),
                     option = $this.data('elem');
 
-                if( self.multiple ) {
+                if(self.multiple) {
 
                     $this.toggleClass('sav-selected');
 
-                    $elem.find('option[value=' + option + ']')
-                         .attr('selected', $this.hasClass('sav-selected'));
+                    if( $this.text() === self.default_option ) {
+
+                        isClicked = !isClicked;
+
+                        $elem.find('option').each(function(i, elem) {
+
+                            $(this).attr("selected", isClicked);
+
+                            dropdown.find("[data-elem='" + elem.value + "']")
+                                    .attr('class', isClicked ? "sav-selected" : '');
+                        });
+                    }
+                    else {
+
+                        $elem.find('option[value=' + option + ']')
+                             .attr('selected', $this.hasClass('sav-selected'));
+                    }
                 }
                 else {
 
