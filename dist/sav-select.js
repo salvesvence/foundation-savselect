@@ -60,7 +60,7 @@ if( typeof Object.create !== 'function' ) {
 
             $elem.after(
                 '<button href="#" data-dropdown="sav-' + id + '" aria-controls="sav-' + id + '" aria-expanded="sav-' + id + '" class="sav-button">' +
-                    self.default_option +
+                    '<p>' + self.default_option + '</p>' +
                 '</button><br>' +
                 '<ul id="sav-' + id + '" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
                     '<li><a href="#">' + self.default_option + '</a></li>' +
@@ -154,8 +154,9 @@ if( typeof Object.create !== 'function' ) {
                 });
 
                 $elem.siblings('.sav-button')
-                    .empty()
-                    .text( texts.filter(Boolean).join(', ') || self.default_option );
+                     .find('p')
+                     .empty()
+                     .text( texts.filter(Boolean).join(', ') || self.default_option );
             });
 
             return self;

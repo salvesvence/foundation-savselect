@@ -37,7 +37,10 @@
 
     margin: 0;
     width: 100%;
+    height: auto;
+    max-height: 240px;
     max-width: none;
+    overflow: auto;
 }
 
 .sav-thumbnail {
@@ -60,4 +63,14 @@
 
     content: "✓";
     float: right;
+}
+
+.sav-button p {
+
+    width: 80%;
+    margin: 0;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
