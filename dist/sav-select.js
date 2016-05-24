@@ -55,13 +55,14 @@ if( typeof  Object.create !== 'function' ) {
         display: function() {
 
             var self = this,
-                $elem = self.$elem;
+                $elem = self.$elem,
+                id = $elem.attr('id');
 
             $elem.after(
-                '<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="sav-select">' +
+                '<button href="#" data-dropdown="sav-' + id + '" aria-controls="sav-' + id + '" aria-expanded="sav-' + id + '" class="sav-button">' +
                     self.default_option +
                 '</button><br>' +
-                '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
+                '<ul id="sav-' + id + '" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
                     '<li><a href="#">' + self.default_option + '</a></li>' +
                 '</ul>'
             ).hide();
@@ -81,7 +82,7 @@ if( typeof  Object.create !== 'function' ) {
 
             $.each(options, function(key, value) {
 
-                if(value.is_selected) $elem.siblings('.sav-select').text(value.text);
+                if(value.is_selected) $elem.siblings('.sav-button').text(value.text);
 
                 html = value.thumbnail
                         ? '<div class="sav-thumbnail" style="background-image: url(' + value.thumbnail + ');"></div>'
@@ -132,14 +133,16 @@ if( typeof  Object.create !== 'function' ) {
                     if( $(this).is("[selected]") ) texts[i] = $(this).text();
                 });
 
-                $elem.siblings('.sav-select')
+                $elem.siblings('.sav-button')
                     .empty()
                     .text( texts.filter(Boolean).join(', ') || self.default_option );
             });
 
             return self;
         }
-    };
+    },
+
+    sav = $('select.sav-select');
 
     $.fn.SavSelect = function( config ) {
 
@@ -154,5 +157,9 @@ if( typeof  Object.create !== 'function' ) {
         theme: 'foundation',
         default_option: 'Select Option'
     };
+
+    if(sav.length) sav.SavSelect();
+
+    $(document).foundation();
 
 })(jQuery, window, document);
