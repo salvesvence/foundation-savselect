@@ -29,6 +29,8 @@ if( typeof Object.create !== 'function' ) {
 
             self.default_option = self.$elem.data('text') || self.config.default_option;
 
+            self.all = self.multiple ? self.config.all : self.default_option;
+
             self.display()
                 .options();
         },
@@ -63,7 +65,7 @@ if( typeof Object.create !== 'function' ) {
                     '<p>' + self.default_option + '</p>' +
                 '</button><br>' +
                 '<ul id="sav-' + id + '" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
-                    '<li><a href="#">' + self.default_option + '</a></li>' +
+                    '<li><a href="#">' + self.all + '</a></li>' +
                 '</ul>'
             ).hide();
 
@@ -118,7 +120,7 @@ if( typeof Object.create !== 'function' ) {
 
                     $this.toggleClass('sav-selected');
 
-                    if( $this.text() === self.default_option ) {
+                    if( $this.text() === self.all ) {
 
                         isClicked = !isClicked;
 
@@ -176,7 +178,8 @@ if( typeof Object.create !== 'function' ) {
 
     $.fn.SavSelect.config = {
         theme: 'foundation',
-        default_option: 'Select Option'
+        default_option: 'Select Option',
+        all: 'Select/Deselect All'
     };
 
     if(sav.length) sav.SavSelect();
