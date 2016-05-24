@@ -65,7 +65,6 @@ if( typeof  Object.create !== 'function' ) {
                 '</ul>'
             ).hide();
 
-            // if select is multiple we disabled the aria-autoclose attribute into the <ul> element.
             if( self.multiple ) $elem.siblings('ul').attr('aria-autoclose', false);
 
             return self.setOptions()
@@ -105,18 +104,19 @@ if( typeof  Object.create !== 'function' ) {
             var self = this,
                 $elem = self.$elem,
                 dropdown = $elem.siblings('.sav-dropdown'),
-                texts = [];
+                texts;
 
             dropdown.find('a').on('click', function() {
 
                 var $this = $(this),
                     option = $this.data('elem');
 
-                // if select is multiple we toggle the .sav-selected class in each <a> tag.
                 if( self.multiple ) {
 
                     $this.toggleClass('sav-selected');
-                    $elem.find('option[value=' + option + ']').attr('selected', $this.hasClass('sav-selected'));
+
+                    $elem.find('option[value=' + option + ']')
+                         .attr('selected', $this.hasClass('sav-selected'));
                 }
                 else {
 
@@ -135,7 +135,6 @@ if( typeof  Object.create !== 'function' ) {
                     .empty()
                     .text( texts.filter(Boolean).join(', ') );
             });
-
 
             return self;
         }
