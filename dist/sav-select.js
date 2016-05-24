@@ -132,6 +132,10 @@ if( typeof Object.create !== 'function' ) {
                     }
                     else {
 
+                        isClicked = false;
+
+                        dropdown.find('a:first').removeClass('sav-selected');
+
                         $elem.find('option[value=' + option + ']')
                              .attr('selected', $this.hasClass('sav-selected'));
                     }
