@@ -1,4 +1,3 @@
-// Utility
 if( typeof  Object.create !== 'function' ) {
 
     Object.create = function( obj ) {
@@ -27,6 +26,8 @@ if( typeof  Object.create !== 'function' ) {
             self.multiple = typeof( self.$elem.attr('multiple') ) != 'undefined';
 
             self.config = $.extend( {}, $.fn.SavSelect.config, config );
+
+            self.default_option = self.$elem.data('text') || self.config.default_option;
 
             self.display()
                 .options();
@@ -58,10 +59,10 @@ if( typeof  Object.create !== 'function' ) {
 
             $elem.after(
                 '<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="sav-select">' +
-                    self.config.default_option +
+                    self.default_option +
                 '</button><br>' +
                 '<ul id="drop1" data-dropdown-content class="f-dropdown sav-dropdown" aria-hidden="true">' +
-                    '<li><a href="#">' + self.config.default_option + '</a></li>' +
+                    '<li><a href="#">' + self.default_option + '</a></li>' +
                 '</ul>'
             ).hide();
 
@@ -133,7 +134,7 @@ if( typeof  Object.create !== 'function' ) {
 
                 $elem.siblings('.sav-select')
                     .empty()
-                    .text( texts.filter(Boolean).join(', ') || self.config.default_option );
+                    .text( texts.filter(Boolean).join(', ') || self.default_option );
             });
 
             return self;
