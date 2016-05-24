@@ -133,7 +133,7 @@ if( typeof  Object.create !== 'function' ) {
 
                 $elem.siblings('.sav-select')
                     .empty()
-                    .text( texts.filter(Boolean).join(', ') );
+                    .text( texts.filter(Boolean).join(', ') || self.config.default_option );
             });
 
             return self;
