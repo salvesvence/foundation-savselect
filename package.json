@@ -26,7 +26,8 @@
     "javascript",
     "jquery",
     "foundation",
-    "bootstrap"
+    "thumbnails-select",
+    "multiple-select"
   ],
   "author": "Silvano Alves Vence",
   "license": "MIT",
