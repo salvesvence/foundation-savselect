@@ -28,11 +28,7 @@ Simply add the .sav-select class to the <select> choosen.
 
 ```html
 <label for="user">NAME</label>
-<select id="user" class="sav-select" name="user">
-    <option value="silvano" data-thumb="http://your-website/silvano/image/path">SILVANO</option>
-    <option value="john" data-thumb="http://your-website/john/image/path">JOHN</option>
-    <option value="doe" data-thumb="http://your-website/doe/image/path">DOE</option>
-</select>
+
 ```
 
 * Example with multiple select:
