@@ -31,6 +31,7 @@ In slick 1.5 you can now add settings using the data-slick attribute. You still 
 Example:
 
 ```html
+<label for="user">NAME</label>
 <div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
   <div><h3>1</h3></div>
   <div><h3>2</h3></div>
@@ -44,7 +45,7 @@ Example:
 Simply add the .sav-select class to the <select> choosen.
 
 ```html
-<label for="user">NAME</label>
+
 <select id="user" class="sav-select" name="user">
     <option value="silvano" data-thumb="http://your-website/silvano/image/path">SILVANO</option>
     <option value="john" data-thumb="http://your-website/john/image/path">JOHN</option>
