@@ -24,7 +24,31 @@ PLEASE review README.md prior to requesting a feature, filing a pull request or 
 
 # Usage
 
-Simply add the .sav-select class to the ```<select>``` choosen.
+Simply add the .sav-select class to the ```<select>``` choosen...
+
+```html
+<label for="user">NAME</label>
+<select id="user" class="sav-select" name="user">
+    <option value="silvano">SILVANO</option>
+    ...
+</select>
+```
+...or instantiate the SavSelect() object.
+
+```html
+<script>
+
+    (function() {
+
+        $('.custom-class').SavSelect();
+
+        // You must to load the foundation event before the foundation-savselect script
+        $(document).foundation();
+
+    })();
+
+</script>
+```
 
 ###Example with thumbnails:
 
@@ -42,7 +66,37 @@ Simply add the .sav-select class to the ```<select>``` choosen.
 You add only the multiple attribute and it works.
 
 ```html
-<select id="user" class="sav-select" name="user" multiple>
+<select id="users" class="sav-select" name="users" multiple>
+    <option value="silvano">SILVANO</option>
+    ...
+</select>
+```
+
+### Example with custom default message:
+
+You add only the data-text attribute and it works...
+
+```html
+<select id="users" class="sav-select" name="users" data-text="CUSTOM DEFAULT MESSAGE" multiple>
+    <option value="silvano">SILVANO</option>
+    ...
+</select>
+```
+
+...or pass the default_option config value into the SavSelect() object.
+
+```html
+$('select.select').SavSelect({
+    'default_option': 'SELECCIONAR OPCIÓN'
+});
+```
+
+### Example with custom select/deselect all options message:
+
+You add only the multiple attribute and it works.
+
+```html
+<select id="users" class="sav-select" name="users" data-all="CUSTOM DEFAULT MESSAGE" multiple>
     <option value="silvano">SILVANO</option>
     ...
 </select>

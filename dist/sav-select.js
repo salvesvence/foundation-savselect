@@ -29,7 +29,7 @@ if( typeof Object.create !== 'function' ) {
 
             self.default_option = self.$elem.data('text') || self.config.default_option;
 
-            self.all = self.multiple ? self.config.all : self.default_option;
+            self.all = self.multiple ? ( self.$elem.data('all') || self.config.all ) : self.default_option;
 
             self.display()
                 .options();

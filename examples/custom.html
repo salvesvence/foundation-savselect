@@ -35,7 +35,7 @@
         <div class="small-12 medium-6 medium-centered columns">
             <h1>My Thumb Select Dropdown</h1>
             <label for="student">NAME</label>
-            <select id="student" class="select" data-text="SELECCIONAR OPCIÓN" name="student">
+            <select id="student" class="select" name="student">
                 <option value="silvano" data-thumb="http://lorempixel.com/400/200/">SILVANO</option>
                 <option value="irene" data-thumb="http://lorempixel.com/400/200/">IRENE</option>
                 <option value="natalia" data-thumb="http://lorempixel.com/400/200/">NATALIA</option>
@@ -51,7 +51,9 @@
 
         (function() {
 
-            $('select.select').SavSelect();
+            $('select.select').SavSelect({
+                'default_option': 'SELECCIONAR OPCIÓN'
+            });
 
             // You must to load the foundation event before the foundation-savselect script
             $(document).foundation();
