@@ -6,8 +6,8 @@ jQuery Plugin for simple or multiple selects with Zurb Foundation.
 Just add in the this order the links to the css files in your `<head>`:
 ```html
 <link rel="stylesheet" href="../libs/css/foundation.min.css">
+<link rel="stylesheet" href="../libs/css/normalize.css">
 <link rel="stylesheet" href="../css/sav-select.min.css">
-<link rel="stylesheet" href="../libs/css/foundation.min.css">
 ```
 
 Then, before your closing ```<body>``` tag add:
