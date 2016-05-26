@@ -18,8 +18,6 @@ Then, before your closing ```<body>``` tag add:
 <script src="../dist/sav-select.min.js"></script>
 ```
 
-# Contributing
-
 # Usage
 
 Simply add the .sav-select class to the <select> choosen.
@@ -34,3 +32,15 @@ Simply add the .sav-select class to the <select> choosen.
     <option value="doe" data-thumb="http://your-website/doe/image/path">DOE</option>
 </select>
 ```
+
+### Example with multiple select
+You add only the multiple attribute and it works.
+
+```html
+<select id="user" class="sav-select" name="user" multiple>
+    <option value="silvano">SILVANO</option>
+    ...
+</select>
+```
+
+# Contributing
