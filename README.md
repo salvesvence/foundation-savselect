@@ -3,34 +3,21 @@ jQuery Plugin for simple or multiple selects with Zurb Foundation.
 
 # Installation and Configuration
 
-#### CDN
-
-To start working with Slick right away, there's a couple of CDN choices availabile
-to serve the files as close, and fast as possible to your users:
-
-- https://cdnjs.com/libraries/...
-
-#####Example using cdnjs
-
-Just add a link to the css file in your `<head>`:
+Just add in the this order the links to the css files in your `<head>`:
 ```html
-<link rel="stylesheet" type="text/css" href="//cdnjs.com/libraries/..."/>
+<link rel="stylesheet" href="../libs/css/foundation.min.css">
+
+<link rel="stylesheet" href="../css/sav-select.css">
+
+<link rel="stylesheet" href="../libs/css/foundation.min.css">
 ```
 
 Then, before your closing ```<body>``` tag add:
 
 ```html
-<script type="text/javascript" src="//cdnjs.com/libraries/..."></script>
-```
-
-#### Package Managers
-
-```sh
-# Bower
-bower install --save ...
-
-# NPM
-npm install ...
+<script src="../libs/js/jquery.min.js"></script>
+<script src="../libs/js/foundation.min.js"></script>
+<script src="../dist/sav-select.min.js"></script>
 ```
 
 #### Contributing
