@@ -26,3 +26,4 @@ PLEASE review README.md prior to requesting a feature, filing a pull request or 
 
 Simply add the .sav-select class to the <select> choosen.
 
+### Example with thumbnails:
