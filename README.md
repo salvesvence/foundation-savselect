@@ -10,7 +10,7 @@ to serve the files as close, and fast as possible to your users:
 
 - https://cdnjs.com/libraries/...
 
-#####Example using jsDelivr
+#####Example using cdnjs
 
 Just add a link to the css file in your `<head>`:
 ```html
