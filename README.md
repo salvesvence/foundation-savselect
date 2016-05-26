@@ -24,11 +24,9 @@ PLEASE review README.md prior to requesting a feature, filing a pull request or 
 
 # Usage
 
-### Data Attribute Settings
+Simply add the .sav-select class to the ```<select>``` choosen.
 
-Simply add the .sav-select class to the <select> choosen.
-
-Example:
+###Example with thumbnails:
 
 ```html
 <label for="user">NAME</label>
@@ -39,13 +37,8 @@ Example:
 </select>
 ```
 
+### Example with multiple select:
 
-
-```html
-
-```
-
-* Example with multiple select:
 You add only the multiple attribute and it works.
 
 ```html
