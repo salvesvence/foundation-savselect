@@ -26,7 +26,7 @@ PLEASE review README.md prior to requesting a feature, filing a pull request or 
 
 ### Data Attribute Settings
 
-In slick 1.5 you can now add settings using the data-slick attribute. You still need to call $(element).slick() to initialize slick on the element.
+Simply add the .sav-select class to the <select> choosen.
 
 Example:
 
@@ -39,7 +39,7 @@ Example:
 </select>
 ```
 
-Simply add the .sav-select class to the <select> choosen.
+
 
 ```html
 
