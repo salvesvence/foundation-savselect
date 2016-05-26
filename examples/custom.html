@@ -18,7 +18,7 @@
         <div class="small-12 medium-6 medium-centered columns">
             <h1>My Thumb Select Dropdown</h1>
             <label for="user">NAME</label>
-            <select id="user" class="s-select" data-text="SELECCIONAR" name="user" multiple>
+            <select id="user" class="sav-select" data-text="SELECCIONAR" name="user" multiple>
                 <option value="silvano">SILVANO</option>
                 <option value="irene">IRENE</option>
                 <option value="natalia">NATALIA</option>
@@ -51,9 +51,7 @@
 
         (function() {
 
-            $('select.select, select.s-select').SavSelect({
-                'all': 'DE/SELECCIONAR TODOS'
-            });
+            $('select.select').SavSelect();
 
             // You must to load the foundation event before the foundation-savselect script
             $(document).foundation();
