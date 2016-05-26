@@ -1,5 +1,5 @@
 # Foudation SavSelect
-jQuery Plugin for simple or multiple selects with Zurb Foundation.
+jQuery Plugin for simple or multiple amazing selects with Zurb Foundation. You'll can add thumbnails, select or deselect all values into the multiple selects, etc.
 
 # Installation and Configuration
 
@@ -18,4 +18,29 @@ Then, before your closing ```<body>``` tag add:
 <script src="../dist/sav-select.min.js"></script>
 ```
 
-#### Contributing
+# Contributing
+
+# Usage
+
+Simply add the .sav-select class to the <select> choosen
+
+#### Example with thumbnails
+
+```html
+<label for="user">NAME</label>
+<select id="user" class="sav-select" name="user">
+    <option value="silvano" data-thumb="http://your-website/silvano/image/path">SILVANO</option>
+    <option value="john" data-thumb="http://your-website/john/image/path">JOHN</option>
+    <option value="doe" data-thumb="http://your-website/doe/image/path">DOE</option>
+</select>
+```
+
+#### Example with multiple select
+You add only the multiple attribute and it works.
+
+```html
+<select id="user" class="sav-select" name="user" multiple>
+    <option value="silvano">SILVANO</option>
+    ...
+</select>
+```
