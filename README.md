@@ -32,25 +32,17 @@ Example:
 
 ```html
 <label for="user">NAME</label>
-<div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
-  <div><h3>1</h3></div>
-  <div><h3>2</h3></div>
-  <div><h3>3</h3></div>
-  <div><h3>4</h3></div>
-  <div><h3>5</h3></div>
-  <div><h3>6</h3></div>
-</div>
+<select id="user" class="sav-select" name="user">
+    <option value="silvano" data-thumb="http://your-website/silvano/image/path">SILVANO</option>
+    <option value="john" data-thumb="http://your-website/john/image/path">JOHN</option>
+    <option value="doe" data-thumb="http://your-website/doe/image/path">DOE</option>
+</select>
 ```
 
 Simply add the .sav-select class to the <select> choosen.
 
 ```html
 
-<select id="user" class="sav-select" name="user">
-    <option value="silvano" data-thumb="http://your-website/silvano/image/path">SILVANO</option>
-    <option value="john" data-thumb="http://your-website/john/image/path">JOHN</option>
-    <option value="doe" data-thumb="http://your-website/doe/image/path">DOE</option>
-</select>
 ```
 
 * Example with multiple select:
