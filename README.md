@@ -40,28 +40,26 @@ Simply add the .sav-select class to the ```<select>``` choosen...
 
     (function() {
 
-        $('.custom-class').SavSelect();
-
-        // You must to load the foundation event before the foundation-savselect script
-        $(document).foundation();
+        $('.custom-selector').SavSelect();
 
     })();
 
 </script>
 ```
 
-###Example with thumbnails:
+#### Example with thumbnails:
+
+You add the data-thumb attribute into the select options.
 
 ```html
 <label for="user">NAME</label>
 <select id="user" class="sav-select" name="user">
     <option value="silvano" data-thumb="http://your-website/silvano/image/path">SILVANO</option>
-    <option value="john" data-thumb="http://your-website/john/image/path">JOHN</option>
-    <option value="doe" data-thumb="http://your-website/doe/image/path">DOE</option>
+    ...
 </select>
 ```
 
-### Example with multiple select:
+#### Example with multiple select:
 
 You add only the multiple attribute and it works.
 
@@ -72,7 +70,7 @@ You add only the multiple attribute and it works.
 </select>
 ```
 
-### Example with custom default message:
+#### Example with custom default message:
 
 You add only the data-text attribute and it works...
 
@@ -86,18 +84,41 @@ You add only the data-text attribute and it works...
 ...or pass the default_option config value into the SavSelect() object.
 
 ```html
-$('select.select').SavSelect({
-    'default_option': 'SELECCIONAR OPCIÓN'
-});
+<script>
+
+    (function() {
+
+        $('.custom-selector').SavSelect({
+            'default_option': 'SELECCIONAR OPCIÓN'
+        });
+
+    })();
+
+</script>
 ```
 
 ### Example with custom select/deselect all options message:
 
-You add only the multiple attribute and it works.
+You add the data-all attribute and it works.
 
 ```html
 <select id="users" class="sav-select" name="users" data-all="CUSTOM DEFAULT MESSAGE" multiple>
     <option value="silvano">SILVANO</option>
     ...
 </select>
+```
+...or pass the default_option config value into the SavSelect() object.
+
+```html
+<script>
+
+    (function() {
+
+        $('.custom-selector').SavSelect({
+            'default_option': 'SELECCIONAR OPCIÓN'
+        });
+
+    })();
+
+</script>
 ```
