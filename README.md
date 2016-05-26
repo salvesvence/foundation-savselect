@@ -72,7 +72,7 @@ You add only the multiple attribute and it works.
 
 #### Example with custom default message:
 
-You add only the data-text attribute and it works...
+You add only the 'data-text' attribute and it works...
 
 ```html
 <select id="users" class="sav-select" name="users" data-text="CUSTOM DEFAULT MESSAGE" multiple>
@@ -81,7 +81,7 @@ You add only the data-text attribute and it works...
 </select>
 ```
 
-...or pass the default_option config value into the SavSelect() object.
+...or pass the 'default_option' config value into the SavSelect() object.
 
 ```html
 <script>
@@ -99,15 +99,15 @@ You add only the data-text attribute and it works...
 
 ### Example with custom select/deselect all options message:
 
-You add the data-all attribute and it works.
+You add the 'data-all' attribute and it works.
 
 ```html
-<select id="users" class="sav-select" name="users" data-all="CUSTOM DEFAULT MESSAGE" multiple>
+<select id="users" class="sav-select" name="users" data-all="DE/SELECT ALL OPTIONS" multiple>
     <option value="silvano">SILVANO</option>
     ...
 </select>
 ```
-...or pass the default_option config value into the SavSelect() object.
+...or pass the 'all' config value into the SavSelect() object.
 
 ```html
 <script>
@@ -115,7 +115,7 @@ You add the data-all attribute and it works.
     (function() {
 
         $('.custom-selector').SavSelect({
-            'default_option': 'SELECCIONAR OPCIÓN'
+            'all': 'DE/SELECT ALL OPTIONS'
         });
 
     })();
